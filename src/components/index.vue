@@ -26,6 +26,8 @@ import KInput from './KInput'
 import FormItem from './FormItem'
 import Form from './Form'
 import KChecked from './KChecked'
+import Notice from './notice/index'
+import create from '@/utils/create'
 export default {
     data() {
         return {
@@ -54,6 +56,12 @@ export default {
                 } else {
                     alert('有错！！！')
                 }
+
+                let notice = create(Notice, {
+                    title: '标题',
+                    message: '我是弹框'
+                })
+                notice.show()
             })
         }
     },
