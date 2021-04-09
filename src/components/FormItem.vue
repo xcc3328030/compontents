@@ -11,15 +11,15 @@ import Schema from 'async-validator'
 export default {
     data() {
         return {
-            errorMessage: ''
+            errorMessage: '',
         }
     },
     props: {
         label: {
             type: String,
-            default: ''
+            default: '',
         },
-        prop: String
+        prop: String,
     },
     inject: ['form'],
     mounted() {
@@ -36,11 +36,11 @@ export default {
 
             // 2.获取数据
             const desc = {
-                [this.prop]: rules
+                [this.prop]: rules,
             }
             const validator = new Schema(desc)
             let obj = { [this.prop]: value }
-            return validator.validate(obj, errors => {
+            return validator.validate(obj, (errors) => {
                 console.log(errors)
                 if (errors) {
                     this.errorMessage = errors[0].message
@@ -48,10 +48,9 @@ export default {
                     this.errorMessage = ''
                 }
             })
-
-        }
-    }
-};
+        },
+    },
+}
 </script>
 
 <style scoped>
