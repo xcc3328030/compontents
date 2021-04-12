@@ -57,7 +57,7 @@ class VueRouter {
 
 
         Vue.component('router-view', {
-            render(h) {
+            render: (h) => {
                 console.log(this.routeMap)
                 console.log(this.app.current)
                 const Comp = this.routeMap[this.app.current].component
